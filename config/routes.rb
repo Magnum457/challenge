@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace 'api' do
+  	namespace 'v1' do
+      post '/orders/', to: 'orders#create'
+      get '/orders/:id', to: 'orders#get_status'
+      get '/orders/:purchase/:status', to: 'orders#list_order'
+  	end
+  end
 end
